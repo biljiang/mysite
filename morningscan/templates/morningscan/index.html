@@ -1,0 +1,128 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>
+            Responsive Design Example
+        </title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "index_css.css" %}" type="text/css">
+    </head>
+    <body>
+        <div id="main">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/" style="font-size:1.5em;padding-right:15px">Home</a>
+                    </li>
+                    <li>
+                        <a href="/stocks">Stocks</a>
+                    </li>
+                    <li>
+                        <a href="/morningscan">Morningscan</a>
+                    </li>
+                    <li>
+                        <a href="/polls">Polls</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </nav>
+            <aside>
+                <ul>
+                    <li><a href="#subtitle1">item1</a> </li>
+                    <li><a href="#subtitle2">item2</a></li>
+                    <li><a href="#subtitle3">item3</a></li>
+                    <li><a href="#subtitle4">item4</a></li>
+                    <li><a href="#subtitle5">item5</a></li>
+                </ul>
+            </aside>
+            <section class="post">
+                <article>
+                    <h1>
+                        MorningScan Homepage
+                    </h1>
+                    <p id="subtitle1">
+                    <strong>subtitle1</strong>
+		    </p>
+			<form action="/morningscan/" method="post">
+			{% csrf_token %} 
+			<table border="0">
+			<tr bgcolor="#cccccc">
+			  <td width="150">Item</td>
+			  <td width="15">Input</td>
+			</tr>
+			<tr>
+			  <td>Date(YYYY_MM_DD)</td>
+			  <td align="center"><input type="text" name="dateofdata" size="10"
+			     maxlength="10"/></td>
+			</tr>
+
+			<tr>
+			  <td>Choose Scaning Time?</td>
+			  <td><select name="find">
+			        <option value = "a">09:25</option>
+			        <option value = "b">09:30</option>
+			        <option value = "c">启动选股</option> 
+				<!--
+			        <option value = "d">Word of mouth</option>
+				-->
+			      </select>
+			  </td>
+			</tr>
+			<tr>
+			  <td colspan="2" align="center"><input type="submit" value="Submit" /></td>
+			</tr>
+			</table>
+			</form>
+					
+					<p>
+					<p id="subtitle2">
+					<strong>
+						subtitle2
+					</strong>
+					</p>					
+					{% if error %}
+					    <p style="color: red;">No Sush Data! {{filename}}</p>
+					{% else %}
+					<iframe width="800"  height='800' frameborder="0" scrolling="yes" src="{{ filename }}"></iframe>
+				        {% endif %}   
+					<p id="subtitle3">
+					<strong>
+						subtitle3
+					</strong>
+					</p>
+					
+					<img class="illustration" src="{% static "butterfly.gif" %}" title="sample pic" alt="beauty" />
+					<p id="subtitle4">
+					<strong>
+						subtitle4
+					</strong>
+					</p>
+
+					<p>Click Insert and then choose the elements you want from the
+					different galleries. Themes and styles also help keep your document
+					coordinated. When you click Design and choose a new Theme, the pictures,
+					charts, and SmartArt graphics change to match your new theme. When you apply
+					styles, your headings change to match the new theme. Save time in Word with new
+					buttons that show up where you need them. To change the way a picture fits in
+					your document, click it and a button for layout options appears next to it.
+					When you work on a table, click where you want to add a row or a column, and
+					then click the plus sign. Reading is easier, too, in the new Reading view. You
+					can collapse parts of the document and focus on the text you want. If you need
+					to stop reading before you reach the end, Word remembers where you left off -
+					even on another device.</p>
+                </article>
+            </section>
+            <footer>
+                <hr>
+                <ul>
+                    <li><small>Wayou &copy 2013|</small></li>
+                    <li><small><a href="mailto:biljiang@outlook.com">Contact</a></small> </li>
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>

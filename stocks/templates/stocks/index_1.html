@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>AVARUN Stocks Daily Analysis</title>
+</head>
+<body>
+    {% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+    {% endif %}
+    <form action="{% url 'analysis' %}" method="post"> 
+    {% csrf_token %}
+        <input type="text" name="s">
+	<input type="text" name="d">
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>

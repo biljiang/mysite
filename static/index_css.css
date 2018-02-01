@@ -1,0 +1,159 @@
+
+html {
+    font-family: "microsoft yahei",arial;
+    font-size: 100%;
+    background-color: #F5F5F5;
+    color: #114;
+}
+
+body {
+    margin: 0;
+    background-color: #F5F5F5;
+}
+
+li {
+    list-style: none;
+}
+
+/*navigation bar*/
+nav {
+/*    position: fixed;
+    top: 0px;
+    width: 100%;*/
+/*    background-color: #3475b4; */
+/*    height: 49px;*/
+    background-color: #417690;
+    border-bottom: 1px solid #3475b3;
+    box-shadow:    0px 0px 10px 3px #BBC;
+}
+
+nav ul {
+	padding-top: 1.0em;
+/*	padding-bottom: 0.1em;	*/
+}
+nav li {
+    display: inline-block;
+    padding-right: 10px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+}
+
+nav li a:hover {
+    color: #DDD;
+}
+
+
+/*sidebar*/
+aside {
+    width: 20%;
+    float: left;
+}
+
+/*post*/
+.post {
+    width: 60%;
+    margin: 0 auto;
+    float: left;
+}
+
+ /*grid layout*/
+.grid {
+}
+
+.grid .item {
+    width: 25%;
+    height: 150px;
+    background-color: #DDD;
+    display: inline-block;
+}
+img {
+    max-width:100%;
+}
+
+ /*footer*/
+footer {
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+
+footer li {
+    display: inline-block;
+}
+footer{
+     width: 100%;
+     text-align: center;
+     clear:both;
+ }
+
+@media only screen and (max-width : 650px) {
+    aside {
+        display: none;
+    }
+
+    .post {
+        width: 100%;
+        float: none;
+        padding: 5px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+} 
+ 
+@media only screen and (max-width : 650px) {
+    aside {
+        display: none;
+    }
+
+    .post {
+        width: 100%;
+        float: none;
+        padding: 5px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .grid {
+        width: 100%;
+    }
+
+    .grid .item {
+        width: 32%;
+    }
+} 
+
+@media screen and (max-width: 500px) {
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li:hover {
+        background-color: #555;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .grid .item {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+
+
+
+
+
+
+

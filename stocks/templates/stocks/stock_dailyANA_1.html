@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>AVARUN Stocks Daily Analysis</title>
+</head>
+<body>
+
+    <h1>Daily Stock Ananlysis</h1>
+    <p>Present time is {{present_time}} </P>
+    <img src="{% url 'response' %}" width="700" height="700" />
+    <p> Analytical data: </p>
+    <p> Stock {{code}} {{s_name}}  on {{date}} :</p>
+    <p> Buying amount : {{B_amount}}      Selling amount: {{S_amount}}   </p>
+    <iframe width='800'  height='300' frameborder='0' scrolling='yes' src="{% url 'b_s_statistics' %}"></iframe>
+    <p> All detailed data: </p>
+    <iframe width='800'  height='400' frameborder='0' scrolling='yes' src="{% url 'data_details' %}"></iframe>
+</body>
+</html>

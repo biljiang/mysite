@@ -1,0 +1,106 @@
+{% load static %}
+<html>
+<head>
+    <title>Welcome to AVARUN!-人工智能A股投资策略分析</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<!--    <link rel="stylesheet" href="{% static "admin/css/base.css" %}" type="text/css"> -->
+    <link rel="stylesheet" href="{% static "index_css.css" %}" type="text/css">    
+    <link rel="stylesheet" href="{% static "admin/css/form.css" %}" type="text/css"> 
+</head>
+    <body>
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="" style="font-size:1.5em;padding-right:15px">Home</a>
+                    </li>
+                    <li>
+                        <a href="stocks">Stocks</a>
+                    </li>
+                    <li>
+                        <a href="morningscan">Morningscan</a>
+                    </li>
+                    <li>
+                        <a href="stocks/JJJ_input">S-Query</a>
+                    </li>
+                    <li>
+                        <a href="static/SP500.html">S&P500</a>
+                    </li> 
+                    <li>
+                        <a href="static/index.html">Demo</a>
+                    </li>
+                </ul>
+            </nav>
+            <aside>
+                <ul>
+                    <li><a href="#subtitle1">item1</a> </li>
+                    <li><a href="#subtitle2">item2</a></li>
+                    <li><a href="#subtitle3">item3</a></li>
+                    <li><a href="#subtitle4">item4</a></li>
+                    <li><a href="#subtitle5">item5</a></li>
+                </ul>
+            </aside>
+            <section class="post">
+                <article>
+                    <intro>
+                    <p>本站未作为商业网站运行，预测股票的数据来自新浪财经，雅虎财经及其他互联网来源，主要用于实验人工智能和机器学习在预测股市行情和股票选择上的应用，请谨慎使用本站结果。谢谢！ </p>
+                    </intro>
+                    <h1>
+                        Sample Title
+                    </h1>
+                    <p id="subtitle1">
+                    <strong>
+						机器学习算法测股
+					</strong>
+					</p>
+                    下图使用了一些机器学习（Machine Learning）算法训练的模型对上证指数进行预测，每日盘后19：00点根据当日及前30日数据对后五
+                    天股指做预测。（图中蓝线表示股市实际当日收盘价，橙色虚线上每日指数值为前一交易日收盘后预测的该日收盘价。绿色线表示对接下来的五个交易日的预估指数收盘价。）
+                    <iframe width=100% height="400" frameborder="0" scrolling="no" src="/static/plotly01.html"></iframe>
+
+
+					
+					<p id="subtitle2">
+					<strong>
+						subtitle2
+					</strong>
+					</p>
+                    <p>下表给出后五交易日的股指预测值及其可能性（机器模型根据最大可能做出选择并绘入上图）。实际的机器学习模型给出的是预测值的概率分布并选择最大可能的预测值来预测。其得到的概率分布对股票交易者作出自己的判断依然能有所帮助，故在此列出排前两位可能的预测值及其可能性。其原理和天气预中的降水概率相仿。 </p>
+                    <iframe width=100% height="200" frameborder="0" scrolling="no" src="/static/my_table.html"></iframe>
+                    <p>
+					<p id="subtitle3">
+					<strong>
+						注意：
+					</strong>
+					</p>					
+                    <ul>
+                         <li>本页虽然给定了各预测指数值及涨跌幅预测值，但实际上该值应该是一个以预测涨跌幅为中心约上下0.2%的范围而不是一个具体值点。其发生概率是指股指落 入该范围的概率而不是股指精确等于该数值的概率！</li>
+                         <li>给出的概率是目前该模型对自身算法所得结果的计算概率，而不是该指数会实际发生的概率。概率的高与低表现算法自身对预测结果发生概率的比较，其与自身的相对高低而不是绝对概率值更有参考意义。</li>
+                         <li>下一交易日的预测结果稍好，2-5天的远期预测效果一般。</li>
+                    </ul>
+					<p id="subtitle4">
+					<strong>
+						说明
+					</strong>
+					</p>
+                    <p>本站根据个人爱好设立，请使用者自行判断是否依据本站数据作出投资和商业决定。本站与使用者可能据此作出的决定所产生的后果无关。谢谢理解！同时欢迎有相同的爱好兴趣者讨论学 习。如有建议请写邮件到<code>biljiang@gmail.com</code> 。</p>
+					<p id="subtitle5">
+					<strong>
+						谢谢！
+					</strong>
+					</p>
+                    <p>本站建设使用各种开源软件，包括一些著名的机器学习和神经网络库如sk-learn, Keras和Tensorflow，数据来源使用了新浪财经和雅虎财经以及其他网络财经数据资源。搭建过程中Python语言编程时大量参考廖雪峰老师的官方网站。NeuralNetwork编程基础知识来源于Dr. MichaelNielsen的网络教材，R及Python数据分析部分分别参考了Professor Karsten Hansen（Rady School of Managment，UCSD）的教学内容和Wes McKinny编写的数据分析书籍。本站建设的想法起源于站长的MBA同学Morgan，狐狸博士，Gary等在学习期间的讨论和鼓励，建设过程得到家人及同学的大力支持，在此一并致谢！</p>
+                </article>
+            </section>
+            <footer>
+                <hr>
+                <ul>
+                    <li><small>JiangFeng@copy 2013|</small></li>
+                    <li><small><a href="mailto:biljiang@outlook.com">Contact</a></small> </li>
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>

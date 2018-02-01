@@ -1,0 +1,90 @@
+{% load static %}
+
+<html>
+    <head>
+        <title>
+            AVARUN Stocks Daily Analysis
+        </title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "index_css.css" %}" type="text/css">
+    </head>
+    <body>
+        <div id="main">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/" style="font-size:1.5em;padding-right:15px">Home</a>
+                    </li>
+                    <li>
+                        <a href="/stocks">Stocks</a>
+                    </li>
+                    <li>
+                        <a href="/morningscan">Morningscan</a>
+                    </li>
+                    <li>
+                        <a href="/polls">Polls</a>
+                    </li>
+                    <li>
+                        <a href="/static/index.html">Demo</a>
+                    </li>
+                </ul>
+            </nav>
+            <aside>
+                <ul>
+                    <li><a href="#subtitle1">item1</a> </li>
+                    <li><a href="#subtitle2">item2</a></li>
+                    <li><a href="#subtitle3">item3</a></li>
+                    <li><a href="#subtitle4">item4</a></li>
+                    <li><a href="#subtitle5">item5</a></li>
+                </ul>
+            </aside>
+            <section class="post">
+                <article>
+                    <h1>
+                        Daily Detail Analysis
+                    </h1>
+                    <p id="subtitle1">
+                    <strong>subtitle1</strong>
+		    </p>
+		    <p>
+         	    <p id="subtitle2">
+			<strong>
+				subtitle2
+			</strong>
+		    </p>					
+                    <img src="{% url 'response' %}" width="700" height="700" />
+
+		    <p id="subtitle3">
+		    <strong>
+			subtitle3
+	    	    </strong>
+	            </p>
+                   
+          	    <p> Analytical data: </p>
+	            <p> Stock {{code}} {{s_name}}  on {{date}} :</p>
+	            <p> Buying amount : {{B_amount}}      Selling amount: {{S_amount}}   </p>
+	            <iframe width='800'  height='300' frameborder='0' scrolling='yes' src="{% url 'b_s_statistics' %}"></iframe>
+		    <p id="subtitle4">
+			<strong>
+				subtitle4
+			</strong>
+		    </p>
+
+
+	            <p> All detailed data: </p>
+	            <iframe width='800'  height='400' frameborder='0' scrolling='yes' src="{% url 'data_details' %}"></iframe>
+
+
+                </article>
+            </section>
+            <footer>
+                <hr>
+                <ul>
+                    <li><small>Wayou &copy 2013|</small></li>
+                    <li><small><a href="mailto:biljiang@outlook.com">Contact</a></small> </li>
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>

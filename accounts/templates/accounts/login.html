@@ -1,0 +1,9 @@
+{% load static %}
+<link rel="styles:sheet" type="text/css" href="{% static "admin/css/login.css" %}" />
+
+
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ login_form }}
+    <input type="submit" value="Submit" />
+</form>
