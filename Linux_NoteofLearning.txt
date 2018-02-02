@@ -249,3 +249,12 @@ git push -u origin master
 git push -u origin feng_dev# this command setup a new branch for avarun.com:datadisk/mysite.git 
 cannot push remote current (master) branch, can push some extra branches
 
+
+git remote add origin git@github.com:biljiang/Hello_Git.git
+
+git pull origin master
+git push -u origin master
+
+git init --shared --separate-git-dir mysite.git ~/datadisk/shared/mysite
+
+https://zhuanlan.zhihu.com/p/23344403
