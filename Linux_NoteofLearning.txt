@@ -245,3 +245,7 @@ git config --global user.name "feng.jiang@tendcloud.com"
 git remote add origin bill@avarun.com:datadisk/mysite.git
 git pull origin master
 git push -u origin master
+
+git push -u origin feng_dev# this command setup a new branch for avarun.com:datadisk/mysite.git 
+cannot push remote current (master) branch, can push some extra branches
+
