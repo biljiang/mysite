@@ -245,3 +245,13 @@ git config --global user.name "feng.jiang@tendcloud.com"
 git remote add origin bill@avarun.com:datadisk/mysite.git
 git pull origin master
 git push -u origin master
+
+
+git remote add origin git@github.com:biljiang/Hello_Git.git
+
+git pull origin master
+git push -u origin master
+
+git init --shared --separate-git-dir mysite.git ~/datadisk/shared/mysite
+
+https://zhuanlan.zhihu.com/p/23344403
