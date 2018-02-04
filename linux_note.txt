@@ -1,0 +1,264 @@
+﻿
+##### romote connect to mysql server:
+https://www.cnblogs.com/lijia0511/p/5644566.html
+
+1. Setup user in mysql @'%' which means any host;
+
+2. vim etc/mysql/mysql.conf.d/mysqld.conf, change 'bind-address = 127.0.0.1' to 'bind-address = 0.0.0.0'. save and quit;
+
+3. sevice mysql resart;
+
+# open firewall of linux
+4. /sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT ;
+
+5. from remote input "mysql -h 192.168.1.23 -u user -p -P 3306".
+	mysql -h 192.168.1.23 -u jiang -p
+	password: pass1234
+
+	local login:   sudo mysql -u root -p
+	pass word bill228600
+
+##### change environment varibles
+
+1. export PATH="/home/bill/anaconda3/bin:$PATH" ;  # be careful of the quote mark, if missed the PATH may be set to PATH="".
+
+2. install ubuntu desktop to enable spyder, otherwise error raise "cannot connect to display".
+
+3.修改了~/.profile 文件使得bill 用户的环境变量变化了
+
+
+##### Linux LVM mount disk
+
+1. pvcreate
+
+2. vgcreate
+
+3. lvcreate
+
+4. disk mount
+
+##### 关于shinyR Server runas:
+
+runas shiny or bill 决定了.libpath 的路径， runas shiny 使用 system libpath,需要在R-base里install.packages(). 而runas bill 使用bill的.libpath 在/home/bill/R/... 里面。
+运行R
+> Sys.getenv()
+...
+R_LIBS_SITE             /usr/local/lib/R/site-library:/usr/lib/R/site-library:/usr/lib/R/library
+R_LIBS_USER             ~/R/x86_64-pc-linux-gnu-library/3.2
+...
+
+需要搞清R的安装目录结构和其自定义的环境变量的作用。
+
+##### 常用服务器服务启动命令；
+在使用init (daemon) 的系统里： initctl 
+       You  may  also create symbolic or hard links to initctl named after commands.  When invoked through these links the tool will behave only as that command, with global and command-specific options intermixed.  The
+       default installation supplies such links for the start, stop, restart, reload and status
+	initctl restart 命令，在未安装upstart系统时不能使用。
+	   
+systemd 里边使用
+	systemctl restart 等命令
+
+另还有更为古老的init.d系统
+
+在下层可以使用service <command> restart
+
+##### Django
+
+Django 安装MYSQLdb 可以通过 pip install mysqlclient 实现，因为 mysql-python 包只支持python2.7。
+
+##### 启动图形界面的控制命令 
+#GRUB_TERMINAL=console ->设置是否使用图形介面。去除前面#，仅使用控制台终端，不使用图形介面 edit 后使用updat-grub 命令
+
+
+PATH="/home/bill/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+PYTHONPATH="/home/bill/anaconda3/bin:/home/bill/anaconda3/sbin:/home/bill/anaconde3/lib:/home/bill/anaconda3/pkgs/django-1.10.5-py36_0/lib/python3.6/site-packages"
+
+# System original environmental variables in file /etc/environment 
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+
+# 连接 mysql 要注意 -h 127.0.0.1 和 -h local host 的区别
+Also, remember that localhost and 127.0.0.1 are not the same thing in this context:
+
+If host is set to localhost, then a socket or pipe is used.
+If host is set to 127.0.0.1, then the client is forced to use TCP/IP.
+
+mysql_config --socket
+that will give you your path to the sock file. take that path and use it in your DATABASES HOST paramater.
+
+What you need to do is point your
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'USER': 'test',
+        'PASSWORD': 'test',
+        'HOST': '/Applications/MAMP/tmp/mysql/mysql.sock',
+        'PORT': '',
+    },
+}
+
+admin: admin / passwd : pass 1234
+
+##### linux 系统备份命令
+
+sudo rsync -Pa / /media/root/FreeAgent GoFlex Drive/backup_20170516 --exclude=/media/* --exclude=/sys/* --exclude=/proc/* --exclude=/temp/* --exclude=/mnt/*
+
+or:
+mount /dev/sdb5 /media/bill/
+sudo rsync -Pa / /media/bill/Goflex_HD/backup_20170516 --exclude=/media/* --exclude=/sys/* --exclude=/proc/* --exclude=/temp/* --exclude=/mnt/*
+umount /media/bill
+
+###恢复
+sudo rsync -Pa /media/root/FreeAgent GoFlex Drive/backup_20170516 /
+
+http://finance.yahoo.com/d/quotes.csv?s=股票名称&f=数据列选项
+
+http://finance.yahoo.com/d/quotes.csv?s=000001.SS&f=snd1|1yr
+
+http://market.finance.sina.com.cn/downxls.php?date=2017-05-18&symbol=sh600900
+
+http://market.finance.sina.com.cn/downxls.php?date=2017-05-11&symbol=s_sh000001
+
+
+通联： (Bil4jia
+juhe:   bill228600 18601355654
+aliyun  bill812890
+huashengke: biljiang bill228600   | ORAYecc45c7080b0
+
+### Crontab for root 
+
+30 20 * * * /home/bill/datadisk/runavaweb/src/auto_update > /dev/null
+
+### 
+Notepad++ -> Edit -> EOL conversion -> Unix/OSX format
+
+### 改变welcome.html 的link
+/srv/shiny-server/index.html -> /opt/shiny-server/samples/welcome.html
+/srv/shiny-server/index.html -> /home/bill/datadisk/runavaweb/www/welcome.html
+
+### 配置apache2 proxy
+
+a2enmod proxy
+a2enmod proxy_http
+a2enmod proxy_html
+a2enmod xml2enc
+systemctl restart apache2
+
+in 000-default.conf add
+ProxyPass "/"  "http://www.example.com/"
+ProxyPassReverse "/"  "http://www.example.com/"
+
+####### new SP 500 webpage 启动
+1. 上传 /en 目录
+2. 上传 model_training_en.py 和 site_update_dev_en.py 
+3. 在linux avarunenv 环境下更新 /en/tmp/df_parameters1_en.pkl(run model_training_en until save pkl)
+4. 更新index.html文件link welcome_en文件
+
+http://avarun.com/.well-known/pki-validation/fileauth.txt
+
+
+####### Static IP address setting####
+vim /etc/network/interfaces
+
+注释掉： 
+iface enp0s25 inet dhcp
+
+添加:
+iface enp0s25 inet static
+address 192.168.1.23
+netmask 255.255.255.0
+gateway 192.168.1.1
+
+
+##### systemd  详述#########
+
+http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html
+
+systemctl start graphical.target
+
+##### ubuntu 图形界面root登陆######
+
+1.sudo vi /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+
+添加一行：greeter-show-manual-login=true 保存关闭
+
+2.sudu vi /root/.profile
+
+找到 mesg n || true
+
+替换成 tty -s && mesg n || true
+
+####关于 Mysql的 soket ######
+
+在 etc/mysql/mysql.conf.d/mysqld.conf 里指定了socket file 是/var/run/mysqld/mysqld.sock
+
+vim ~/.my.cnf
+添加
+[client]
+
+socket = /var/run/mysqld/mysqld.sock
+
+#####摄像头######
+http://www.linuxidc.com/Linux/2010-09/28684.htm
+
+ffserver -f /etc/ffserver.conf & ffmpeg  -i /dev/video0 http://127.0.0.1:8090/feed1.ffm
+注释掉原conf文件里mpeg流的部分！！！
+
+在<stream> 里使用NoDefault参数
+
+mpeg,avi,rm都会先传输整个文件！！！
+
+https://baike.baidu.com/item/%E6%B5%81%E5%AA%92%E4%BD%93/98740?fr=aladdin
+如视频为实时广播，或使用流式传输媒体服务器，或应用如RTSP的实时协议，即为实时流式传输。如使用HTTP服务器，文件即通过顺序流发送。采用哪种传输方法依赖你的需求。当然，流式文件也支持在播放前完全下载到硬盘
+
+#### mysite/static/ links####
+
+ln -s /home/bill/datadisk/runavaweb/www/index_graph1.html plotly01.html
+ln -s /home/bill/datadisk/runavaweb/www/my_table.html my_table.html
+ln -s /home/bill/datadisk/runavaweb/en/www/index_graph1_en.html plotly01_en.html
+ln -s /home/bill/datadisk/runavaweb/en/www/my_table_en.html my_table_en.html
+
+
+###启动django virtual environment###
+bill@localhost:~/myenv$ source bin/activate
+
+python manage.py shell
+
+# myenv is configured into apache2 mysite.conf
+
+note that it is different from anaconda env:
+
+source ~/anaconda3/bin/activate avarunenv
+
+from django.contrib.auth.models import User
+user = User.objects.create_user('jiang1', 'biljiang@qq.com', 'jiang1pwd')
+user.save()
+
+### git practice #####
+
+put private key file to ~/.ssh/
+
+git config --global user.name "feng"
+git config --global user.name "feng.jiang@tendcloud.com"
+
+git remote add origin bill@avarun.com:datadisk/mysite.git
+git pull origin master
+git push -u origin master
+
+git push -u origin feng_dev# this command setup a new branch for avarun.com:datadisk/mysite.git 
+cannot push remote current (master) branch, can push some extra branches
+
+
+git remote add origin git@github.com:biljiang/Hello_Git.git
+
+git pull origin master
+git push -u origin master
+
+git init --shared --separate-git-dir mysite.git ~/datadisk/shared/mysite
+
+https://zhuanlan.zhihu.com/p/23344403
+
+https://www.cnblogs.com/lijia0511/p/5644566.html
+
