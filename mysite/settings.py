@@ -25,7 +25,7 @@ SECRET_KEY = '=e0s6@ar%4o6iz!_0338co&swix7*_d(0nr%m76aaxvsw27*&f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.23','127.0.0.1','avarun.com']
+ALLOWED_HOSTS = ['192.168.1.23','127.0.0.1','avarun.com','avarun.cn','www.avarun.com']
 
 
 # Application definition
@@ -118,7 +118,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 

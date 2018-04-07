@@ -1,13 +1,13 @@
 from django.shortcuts import render
-import matplotlib
-matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 # Create your views here.
 from django.http import HttpResponse
 #from stocks import lib_stockselect as l_s
 #from stocks import lib_stockplot as l_plt
-from stocks import draw_st_graph as l_draw
+#from stocks import draw_st_graph as l_draw
 #import matplotlib.pyplot as plt
-from io import BytesIO
+#from io import BytesIO
 
 
 def index(request):

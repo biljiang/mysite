@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% load static %}
 <html>
 <head>
@@ -58,10 +59,14 @@
 					</p>
                     下图使用了一些机器学习（Machine Learning）算法训练的模型对上证指数进行预测，每日盘后19：00点根据当日及前30日数据对后五
                     天股指做预测。（图中蓝线表示股市实际当日收盘价，橙色虚线上每日指数值为前一交易日收盘后预测的该日收盘价。绿色线表示对接下来的五个交易日的预估指数收盘价。）
-                    <iframe width=100% height="400" frameborder="0" scrolling="no" src="/static/plotly01.html"></iframe>
+                    <iframe width=100% height="400" frameborder="0" scrolling="no" src="/static/plotly01.html"></iframe> 
+<!--    <object style="border:0px" type="text/x-scriptlet" data="page/Page_1.html" width=100% height=400px>
+    </object>
+-->
+                    <p>the second picture</p>
 
-
-					
+                    <div id="page1" style="width:70%;height:400;"></div>
+				
 					<p id="subtitle2">
 					<strong>
 						subtitle2
@@ -70,6 +75,7 @@
                     <p>下表给出后五交易日的股指预测值及其可能性（机器模型根据最大可能做出选择并绘入上图）。实际的机器学习模型给出的是预测值的概率分布并选择最大可能的预测值来预测。其得到的概率分布对股票交易者作出自己的判断依然能有所帮助，故在此列出排前两位可能的预测值及其可能性。其原理和天气预中的降水概率相仿。 </p>
                     <iframe width=100% height="200" frameborder="0" scrolling="no" src="/static/my_table.html"></iframe>
                     <p>
+                    <div id="page2" style="width:70%;height:200;"></div>
 					<p id="subtitle3">
 					<strong>
 						注意：
@@ -102,5 +108,15 @@
                 </ul>
             </footer>
         </div>
+<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+</script>
+                    <script>
+                        $("#page1").load("/static/plotly01.html");
+                    </script>  
+                    <script>
+                        $("#page2").load("/static/my_table.html");
+                    </script>  
+
+
     </body>
 </html>

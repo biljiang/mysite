@@ -262,3 +262,71 @@ https://zhuanlan.zhihu.com/p/23344403
 
 https://www.cnblogs.com/lijia0511/p/5644566.html
 
+######## tencent cloud ############
+
+ubuntu@193.112.4.251(10.135.103.225) -p TBXh2t3VVCcB
+
+mysql -h 10.66.226.102 -u root -p bill228600
+
+######### change mysql data dir###############
+cp -arp /var/lib/mysql　/home/data/
+
+
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+
+
+vim /etc/apparmor.d/usr.sbin.mysqld
+
+systemctl restart apparmor
+systemctl restart mysql
+
+
+ubuntu@123.207.175.60(10.141.22.70) -p aus7fvBFvZQTymN(reset to bill228600)
+
+服务器名称	云主机ID	所在网络ID	内网IP	公网IP
+未命名	ins-r7htk7cb	基础网络	10.141.22.70	123.207.175.60
+
+########### install mysqlclient under conda3 #####################
+
+sudo apt install libmysqlclient-dev
+
+pip install mysqlclient
+
+
+########### install uwsgi ##############################
+
+note: 
+
+apt install uwsgi
+apt install uwsgi --plugin python
+
+pip install uwsgi
+
+will install uwsgi under different path
+
+http://uwsgi-docs-zh.readthedocs.io/zh_CN/latest/tutorials/Django_and_nginx.html
+
+
+
+################### 18/4/7 #############################
+
+因为安装bokeh 在更新  conda 时不小心将conda changed to python 2.7
+
+从备份盘回考系统，导致/下多出backup20170516 文件夹 /用量 100% avarun.com 崩溃
+
+回考 anaconda3 
+
+rm /backup20170516 文件夹恢复
+
+更改系统 /usr/bin/python link to ~/anaconda3/bin/python
+
+
+更改/etc/apt/sources.list 去掉ububntu 源注释
+
+重装 nodejs 9
+
+更新conda 
+
+jupyter 和 bokeh 恢复
+
+
