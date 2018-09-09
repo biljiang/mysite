@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="CHS" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Welcome to AVARUN!-人工智能A股投资策略分析</title>
+    <style type="text/css">
+    body, html {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: #114;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #titleBar {
+      height: 80px;
+      background-color: #3475b4;
+      overflow: hidden;
+      border-bottom: 1px solid #3475b3;
+      -moz-box-shadow:    0px 0px 10px 3px #BBC;
+      -webkit-box-shadow: 0px 0px 10px 3px #BBC;
+      box-shadow:         0px 0px 10px 3px #BBC;
+    }
+    #titleBar #container {
+      margin-top: 14px;
+    }
+    #container #Navibar{
+      display: inline;
+    }
+    #container {
+      width: 300px;
+      float: left;
+    }
+    #Navibar {
+      width: 600px;
+      float: right;
+      margin-top: 20px;
+      margin-right: 40px;
+    }
+    #Navibar li {
+      display: inline;
+      padding: 5px 10px;
+      float: right;
+    }
+    #Navibar a{
+      color: #FFF;
+    }
+    #titleBar h1 {
+      margin: 0 auto .5em auto;
+      padding: .2e<span bluegriffonstandalone="true" bluegriffonsourceselected="true"></span>m;
+      color: #EEE;
+      text-align: center;
+    }
+    #intro {
+      background-color: #DDD;
+      margin: 1em 1em 0 1em;
+      padding: .75em;
+      text-align: center;
+      border: 1px solid #CCC;
+      font-size: 18px;
+    }
+    #intro p {
+      margin: .3em 0 .3em 0;
+    }
+    #outer-content {
+      max-width: 910px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #content {
+      margin: 1em auto 1em auto;
+      float: left;
+    }
+    #main{
+      margin-right: 350px;
+      float: left;
+      line-height: 24px;
+    }
+
+    #shiny{
+      float: left;
+      width: 305px;
+      margin-left: -330px;
+      padding-left: 20px;
+      border-left: 1px solid #AAA;
+    }
+    #shiny iframe {
+      margin-top: 30px;
+    }
+    .caption{
+      font-size: 13px;
+    }
+    code {
+      background-color: #E5E5E5;
+      border: 1px solid #AAA;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px; 
+      -moz-border-radius: 3px;
+      border-rdius: 3px;
+      padding: 0 .5em 0 .5em;
+    }
+  </style>
+  </head>
+  <body>
+    <div id="titleBar">
+      <div id="container">
+        <h1>机器学股</h1>
+      </div>
+      <div id="Navibar">
+        <ul>
+          <li> <a href="./Demosample">条件选股器</a> </li>
+          <li> <a href="./index.html">首页</a> </li>
+        </ul>
+      </div>
+    </div>
+    <div id="outer-content">
+      <div id="intro">
+        <p>本站未作为商业网站运行，预测股票的数据来自新浪财经，雅虎财经及其他互联网来源，主要用于实验人工智能和机器学习在预测股市行情和股票选择上的应
+          用，请谨慎使用本站结果。谢谢！ </p>
+      </div>
+      <div id="content">
+        <div id="main">
+          <h2>机器学习算法测股</h2>
+          下图使用了一些机器学习（Machine Learning）算法训练的模型对上证指数进行预测，每日盘后19：00点根据当日及前30日数据对后五
+          天股指做预测。对多次30天涨跌幅预测值和实际值做相关性分析可
+          知其相关系数在0.4-0.5左右。虽然还不是一个十分准确的预测（理想情况下希望相关性达到0.8以上），但比起每日涨跌幅与第二日涨跌幅近似无相关性的状态（30天样
+          本相 关系数0.2左右）也算大有改善，至少表明机器学习算法在指数预测上能有所作为。在提高模型的复杂度和仔细的参数调优后，有望取得更好的结果。
+          （图中蓝线表示股市实际当日收盘价，橙色虚线上每日指数值为前一交易日收盘后预测的该日收盘价。绿色线表示对接下来的五个交易日的预估指数收盘价。）<iframe
+            width="800" height="400" frameborder="0" src="/static/plotly01.html"
+            scrolling="no"></iframe>
+          <p>下表给出后五交易日的股指预测值及其可能性（机器模型根据最大可能做出选择并绘入上图）。实际的机器学习模型给出的是预测值的概率分布并选择最
+            大可能的预测值来预测。其得到的概率分布对股票交易者作出自己的判断依然能有所帮助，故在此列出排前两位可能的预测值及其可能性。其原理和天气预
+            中的降水概率相仿。 </p>
+          <b> <iframe width="700" height="200" frameborder="0" src="/static/my_table.html"
+              scrolling="no"></iframe> </b>
+          <p><b>注意：</b></p>
+          <ul>
+            <li>本页虽然给定了各预测指数值及涨跌幅预测值，但实际上该值应该是一个以预测涨跌幅为中心约上下0.2%的范围而不是一个具体值点。其发生
+              概率是指股指落 入该范围的概率而不是股指精确等于该数值的概率！</li>
+            <li>给出的概率是目前该模型对自身算法所得结果的计算概率，而不是该指数会实际发生的概率。概率的高与低表现算法自身对预测结果发生概率的比
+              较，其与自身的相对高低而不是绝对概率值更有参考意义。</li>
+            <li>下一交易日的预测结果较好，2-5天的远期预测效果一般。</li>
+          </ul>
+          <h2>
+            <pre>说明</pre>
+          </h2>
+          <p>本站根据个人爱好设立，请使用者自行判断是否依据本站数据作出投资和商业决定。本站与使用者可能据此作出的决定所产生的后果无关。谢谢理解！同
+            时欢迎有相同的爱好兴趣者讨论学 习。如有建议请写邮件到<code>biljiang@gmail.com</code> 。</p>
+          <h2>谢谢！</h2>
+          <p>本站建设使用各种开源软件，包括一些著名的机器学习和神经网络库如sk-learn, Keras和Tensorflow，网站服务器使用
+            Apache，Rshiny-Server，数据来
+            源使用了新浪财经和雅虎财经以及其他网络财经数据资源。搭建过程中Python语言编程时大量参考廖雪峰老师的官方网站。Neural
+            Network编程基础知识来源于Dr. Michael
+            Nielsen的网络教材，R及Python数据分析部分分别参考了Professor Karsten Hansen（Rady School
+            of Managment，UCSD）的教学内容和Wes McKinny编写的数据分
+            析书籍。本站建设的想法起源于站长的MBA同学Morgan，狐狸博士，Gary等在学习期间的讨论和鼓励，建设过程得到家人及同学的大力支持，
+            在此一并致谢！</p>
+        </div>
+        <div id="shiny"><iframe style="border: 1px solid #AAA; width: 290px; height: 1400px"
+            src="./Demosample"></iframe>
+          <div class="caption"> 看到本窗口内容表明服务器配置正常！</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

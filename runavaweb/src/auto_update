@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd /home/bill/datadisk/runavaweb/src/
+source /home/bill/datadisk/runavaenv/bin/activate
+python site_update.py
+deactivate
+cd ~
+
+#date
+#who
+

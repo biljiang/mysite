@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+            <html lang="CHS" xmlns="http://www.w3.org/1999/xhtml">
+              <head>
+                <meta charset="utf-8" />
+                <title>Welcome to AVARUN!-人工智能A股投资策略分析</title>
+                <style type="text/css">
+    body, html {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: #F5F5F5;
+      color: #114;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    #titleBar {
+      /*position: fixed;
+      top: 0px;*/
+      height: 80px;
+      background-color: #3475b4;
+      overflow: hidden;
+      border-bottom: 1px solid #3475b3;
+      -moz-box-shadow:    0px 0px 10px 3px #BBC;
+      -webkit-box-shadow: 0px 0px 10px 3px #BBC;
+      box-shadow:         0px 0px 10px 3px #BBC;
+    }
+    #titleBar {
+      margin-top: 14px;
+    }
+    #container #Navibar{
+      display: inline;
+    }
+    #container {
+      width: 300px;
+      float: left;
+    }
+    #Navibar {
+      width: 600px;
+      float: right;
+      margin-top: 20px;
+      margin-right: 40px;
+    }
+    #Navibar li {
+      display: inline;
+      padding: 5px 10px;
+      float: right;
+    }
+    #Navibar a{
+      color: #FFF;
+    }
+    #titleBar h1 {
+      margin: 0 auto .5em auto;
+      padding: .2e<span bluegriffonstandalone="true" bluegriffonsourceselected="true"></span>m;
+      color: #EEE;
+      text-align: center;
+    }
+    #intro {
+      background-color: #DDD;
+      margin: 1em 1em 0 1em;
+      padding: .75em;
+      text-align: center;
+      border: 1px solid #CCC;
+      font-size: 18px;
+    }
+    #intro p {
+      margin: .3em 0 .3em 0;
+    }
+    #outer-content {
+      max-width: 910px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #content {
+      margin: 1em auto 1em auto;
+      float: left;
+    }
+    #main{
+      margin-right: 350px;
+      float: left;
+      line-height: 24px;
+    }
+
+    #shiny{
+      float: left;
+      width: 305px;
+      margin-left: -330px;
+      padding-left: 20px;
+      border-left: 1px solid #AAA;
+    }
+    #shiny iframe {
+      margin-top: 30px;
+    }
+    .caption{
+      font-size: 13px;
+    }
+    code {
+      background-color: #E5E5E5;
+      border: 1px solid #AAA;
+      -webkit-border-radius: 3px;
+      -khtml-border-radius: 3px; 
+      -moz-border-radius: 3px;
+      border-rdius: 3px;
+      padding: 0 .5em 0 .5em;
+    }
+  </style>
+              </head>
+              <body>
+                <div id="titleBar">
+                  <div id="container">
+                    <h1>AI LEARNS to STOCK</h1>
+                  </div>
+                  <div id="Navibar">
+                    <ul>
+                      <li> <a href="./Demosample">SelecTOOL</a> </li>
+                      <li> <a href="./index.html">Home</a> </li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="outer-content">
+                  <div id="intro">
+                    <p>NOT a commercial site! All data comes from Yahoo Finance
+                      and other internet resources. NO guarantee for accuracy.
+                      Main idea for the site is to explore and experiment with
+                      AI and ML technology and their  application in index
+                      forecasting and stock portfolio selection.BE CAUTIOUS with
+                      the data presented hereafter。THANKS！ </p>
+                  </div>
+                  <div id="content">
+                    <div id="main">
+                      <h2>S&amp;P500 Forecast by RNN<br />
+                      </h2>
+                      The Chart below shows S&amp;P500 index forecast by a
+                      simple RNN model, predicting index values for next five
+                      trading days at 9:30 PM (US/Eastern time) each day
+                      according the closing index values of that day and
+                      preceding 29 days.  （Blue line is actual index values.
+                      Orange line is predicted values after last trading days
+                      closing. Green line is forecast values for next five
+                      trading days.）<iframe width="800" height="400" frameborder="0"
+
+                        scrolling="no" src="/static/plotly01_en.html"></iframe>
+                      <p>Next table shows the forecast values for next five days
+                        and their probabilities -the most likely instances are
+                        adopted in the chart above. The model will generate a
+                        probability distribution for the index to be forecast
+                        and choose the most likely instances as its forecast
+                        values. The top 2 forecast values and their
+                        probabilities would be helpful. </p>
+                      <iframe width="700" height="200" frameborder="0" scrolling="no"
+
+                        src="/static/my_table_en.html"></iframe>
+                      <p><b>Note:</b></p>
+                      <ul>
+                        <li>The forecast value is actually a range around the
+                          number instead of a precise value. And the probability
+                          is the probability of the value falling into the
+                          range. Giving out a precise value is for simplicity
+                          reason and easiness to demo in chart！</li>
+                        <li>The probability is a result of the model's
+                          algorithm, not the probability of actual occurrence.
+                          It is more meaningful when compared to itself than
+                          considering the absolute value.</li>
+                        <li>Forecast value for next day is better than the rest,
+                          if any good.</li>
+                      </ul>
+                      <h2>
+                        <pre><br /></pre>
+          </h2>
+          <p>The site is set for personal interest. Not used for business and investment decisions. the user hold the liability of his or her own decision whether or not using the result displayed in this site. Any idea and suggestion please mail to  <code>biljiang@gmail.com</code> 。</p>
+          <h2>THANKS！</h2>
+          <p><br /></p>
+        </div>
+        <div id="shiny"><iframe src="./Demosample" style="border: 1px solid #AAA; width: 290px; height: 1400px"></iframe>
+          <div class="caption"> Seeing the content in this window indicates right configuration of the server.</div>
+        </div>
+      </div>
+    </div>
+</body></html>
